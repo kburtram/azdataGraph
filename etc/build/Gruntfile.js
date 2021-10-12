@@ -68,7 +68,7 @@ module.exports = function (grunt) {
           "}));"
       }
     },
-    webpack: {
+    /*webpack: {
       examples: {
         entry: "./javascript/examples/webpack/src/anchors.js",
         output: {
@@ -76,7 +76,7 @@ module.exports = function (grunt) {
           filename: "anchors.js"
         }
       }
-    },
+    },*/
     watch: {
       javascripts: {
         files: "javascript/src/**/*.js",
@@ -91,8 +91,7 @@ module.exports = function (grunt) {
   require("load-grunt-tasks")(grunt);
   grunt.registerTask("default", [
     "copy",
-    "concat",
-    "webpack"
+    "concat"
   ]);
   grunt.registerTask("build", [
     "default"
