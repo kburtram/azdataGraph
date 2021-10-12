@@ -1,19 +1,19 @@
 {
-  "name": "mxgraph",
-  "description": "mxGraph is a fully client side JavaScript diagramming library that uses SVG and HTML for rendering.",
-  "version": "4.2.2",
-  "homepage": "https://github.com/jgraph/mxgraph",
+  "name": "azdataGraph",
+  "description": "azdataGraph is a derivative of mxGraph, which is a fully client side JavaScript diagramming library that uses SVG and HTML for rendering.",
+  "version": "0.0.1",
+  "homepage": "https://github.com/kburtram/azdataGraph",
   "author": {
-    "name": "JGraph Ltd",
-    "email": "support@jgraph.com"
+    "name": "Microsoft",
+    "email": "karlb@microsoft.com"
   },
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jgraph/mxgraph.git"
+    "url": "git+https://github.com/kburtram/azdataGraph.git"
   },
   "bugs": {
-    "url": "https://github.com/jgraph/mxgraph/issues"
+    "url": "https://github.com/kburtram/azdataGraph/issues"
   },
   "main": "./javascript/dist/build.js",
   "scripts": {
