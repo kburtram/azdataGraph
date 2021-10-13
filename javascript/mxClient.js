@@ -1,3 +1,15 @@
+(function (root, factory) {
+if (typeof define === 'function' && define.amd) {
+define([], factory);
+} else if (typeof module === 'object' && module.exports) {
+module.exports = factory();
+} else {
+root.mxgraph = factory();
+}
+}(this, function () {
+return function (opts) {
+for (var name in opts) { this[name] = opts[name]; }
+var __mxOutput = {};
 /**
  * Copyright (c) 2006-2017, JGraph Ltd
  * Copyright (c) 2006-2017, Gaudenz Alder
@@ -646,6 +658,159 @@ if (mxClient.IS_VML)
 	}
 }
 
+// PREPROCESSOR-REMOVE-START
+// If script is loaded via CommonJS, do not write <script> tags to the page
+// for dependencies. These are already included in the build.
+if (mxForceIncludes || !(typeof module === 'object' && module.exports != null))
+{
+// PREPROCESSOR-REMOVE-END
+	mxClient.include(mxClient.basePath+'/js/util/mxLog.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxObjectIdentity.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxDictionary.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxResources.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxPoint.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxRectangle.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxEffects.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxUtils.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxConstants.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxEventObject.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxMouseEvent.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxEventSource.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxEvent.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxXmlRequest.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxClipboard.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxWindow.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxForm.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxImage.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxDivResizer.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxDragSource.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxToolbar.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxUndoableEdit.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxUndoManager.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxUrlConverter.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxPanningManager.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxPopupMenu.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxAutoSaveManager.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxAnimation.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxMorphing.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxImageBundle.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxImageExport.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxAbstractCanvas2D.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxXmlCanvas2D.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxSvgCanvas2D.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxVmlCanvas2D.js');
+	mxClient.include(mxClient.basePath+'/js/util/mxGuide.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxShape.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxStencil.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxStencilRegistry.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxMarker.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxActor.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxCloud.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxRectangleShape.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxEllipse.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxDoubleEllipse.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxRhombus.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxPolyline.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxArrow.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxArrowConnector.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxText.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxTriangle.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxHexagon.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxLine.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxImageShape.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxLabel.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxCylinder.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxConnector.js');
+	mxClient.include(mxClient.basePath+'/js/shape/mxSwimlane.js');
+	mxClient.include(mxClient.basePath+'/js/layout/mxGraphLayout.js');
+	mxClient.include(mxClient.basePath+'/js/layout/mxStackLayout.js');
+	mxClient.include(mxClient.basePath+'/js/layout/mxPartitionLayout.js');
+	mxClient.include(mxClient.basePath+'/js/layout/mxCompactTreeLayout.js');
+	mxClient.include(mxClient.basePath+'/js/layout/mxRadialTreeLayout.js');
+	mxClient.include(mxClient.basePath+'/js/layout/mxFastOrganicLayout.js');
+	mxClient.include(mxClient.basePath+'/js/layout/mxCircleLayout.js');
+	mxClient.include(mxClient.basePath+'/js/layout/mxParallelEdgeLayout.js');
+	mxClient.include(mxClient.basePath+'/js/layout/mxCompositeLayout.js');
+	mxClient.include(mxClient.basePath+'/js/layout/mxEdgeLabelLayout.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/model/mxGraphAbstractHierarchyCell.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/model/mxGraphHierarchyNode.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/model/mxGraphHierarchyEdge.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/model/mxGraphHierarchyModel.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/model/mxSwimlaneModel.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/stage/mxHierarchicalLayoutStage.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/stage/mxMedianHybridCrossingReduction.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/stage/mxMinimumCycleRemover.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/stage/mxCoordinateAssignment.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/stage/mxSwimlaneOrdering.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/mxHierarchicalLayout.js');
+	mxClient.include(mxClient.basePath+'/js/layout/hierarchical/mxSwimlaneLayout.js');
+	mxClient.include(mxClient.basePath+'/js/model/mxGraphModel.js');
+	mxClient.include(mxClient.basePath+'/js/model/mxCell.js');
+	mxClient.include(mxClient.basePath+'/js/model/mxGeometry.js');
+	mxClient.include(mxClient.basePath+'/js/model/mxCellPath.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxPerimeter.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxPrintPreview.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxStylesheet.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxCellState.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxGraphSelectionModel.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxCellEditor.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxCellRenderer.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxEdgeStyle.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxStyleRegistry.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxGraphView.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxGraph.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxCellOverlay.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxOutline.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxMultiplicity.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxLayoutManager.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxSwimlaneManager.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxTemporaryCellStates.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxCellStatePreview.js');
+	mxClient.include(mxClient.basePath+'/js/view/mxConnectionConstraint.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxGraphHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxPanningHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxPopupMenuHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxCellMarker.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxSelectionCellsHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxConnectionHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxConstraintHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxRubberband.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxHandle.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxVertexHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxEdgeHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxElbowEdgeHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxEdgeSegmentHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxKeyHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxTooltipHandler.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxCellTracker.js');
+	mxClient.include(mxClient.basePath+'/js/handler/mxCellHighlight.js');
+	mxClient.include(mxClient.basePath+'/js/editor/mxDefaultKeyHandler.js');
+	mxClient.include(mxClient.basePath+'/js/editor/mxDefaultPopupMenu.js');
+	mxClient.include(mxClient.basePath+'/js/editor/mxDefaultToolbar.js');
+	mxClient.include(mxClient.basePath+'/js/editor/mxEditor.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxCodecRegistry.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxObjectCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxCellCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxModelCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxRootChangeCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxChildChangeCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxTerminalChangeCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxGenericChangeCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxGraphCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxGraphViewCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxStylesheetCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxDefaultKeyHandlerCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxDefaultToolbarCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxDefaultPopupMenuCodec.js');
+	mxClient.include(mxClient.basePath+'/js/io/mxEditorCodec.js');
+	mxClient.include(mxClient.basePath+'/js/azdata/azdataQueryPlan.js');
+// PREPROCESSOR-REMOVE-START
+}
+// PREPROCESSOR-REMOVE-END
+
+__mxOutput.mxClient = typeof mxClient !== 'undefined' ? mxClient : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -1060,6 +1225,9 @@ var mxLog =
 	}
 	
 };
+
+__mxOutput.mxLog = typeof mxLog !== 'undefined' ? mxLog : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -1132,6 +1300,9 @@ var mxObjectIdentity =
 	}
 
 };
+
+__mxOutput.mxObjectIdentity = typeof mxObjectIdentity !== 'undefined' ? mxObjectIdentity : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -1262,6 +1433,9 @@ mxDictionary.prototype.visit = function(visitor)
 		visitor(key, this.map[key]);
 	}
 };
+
+__mxOutput.mxDictionary = typeof mxDictionary !== 'undefined' ? mxDictionary : undefined;
+
 /**
  * Copyright (c) 2006-2016, JGraph Ltd
  * Copyright (c) 2006-2016, Gaudenz Alder
@@ -1712,6 +1886,9 @@ var mxResources =
 	}
 
 };
+
+__mxOutput.mxResources = typeof mxResources !== 'undefined' ? mxResources : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -1766,6 +1943,9 @@ mxPoint.prototype.clone = function()
 	// Handles subclasses as well
 	return mxUtils.clone(this);
 };
+
+__mxOutput.mxPoint = typeof mxPoint !== 'undefined' ? mxPoint : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -1947,6 +2127,9 @@ mxRectangle.fromRectangle = function(rect)
 {
 	return new mxRectangle(rect.x, rect.y, rect.width, rect.height);
 };
+
+__mxOutput.mxRectangle = typeof mxRectangle !== 'undefined' ? mxRectangle : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -2158,6 +2341,9 @@ var mxEffects =
 	}
 
 };
+
+__mxOutput.mxEffects = typeof mxEffects !== 'undefined' ? mxEffects : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -6678,6 +6864,9 @@ var mxUtils =
 	}
 
 };
+
+__mxOutput.mxUtils = typeof mxUtils !== 'undefined' ? mxUtils : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -9016,6 +9205,9 @@ var mxUtils =
 	 */
 	PERIMETER_TRIANGLE: 'trianglePerimeter'
 };
+
+__mxOutput.mxConstants = typeof mxConstants !== 'undefined' ? mxConstants : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -9127,6 +9319,9 @@ mxEventObject.prototype.consume = function()
 {
 	this.consumed = true;
 };
+
+__mxOutput.mxEventObject = typeof mxEventObject !== 'undefined' ? mxEventObject : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -9372,6 +9567,9 @@ mxMouseEvent.prototype.consume = function(preventDefault)
 	// Sets local consumed state
 	this.consumed = true;
 };
+
+__mxOutput.mxMouseEvent = typeof mxMouseEvent !== 'undefined' ? mxMouseEvent : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -9561,6 +9759,9 @@ mxEventSource.prototype.fireEvent = function(evt, sender)
 		}
 	}
 };
+
+__mxOutput.mxEventSource = typeof mxEventSource !== 'undefined' ? mxEventSource : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -9603,9 +9804,26 @@ var mxEvent =
 		
 		if (window.addEventListener)
 		{
+			// Checks if passive event listeners are supported
+			// see https://github.com/Modernizr/Modernizr/issues/1894
+			var supportsPassive = false;
+			
+			try
+			{
+				document.addEventListener('test', function() {}, Object.defineProperty &&
+					Object.defineProperty({}, 'passive', {get: function()
+					{supportsPassive = true;}}));
+			}
+			catch (e)
+			{
+				// ignore
+			}
+			
 			return function(element, eventName, funct)
 			{
-				element.addEventListener(eventName, funct, false);
+				element.addEventListener(eventName, funct,
+					(supportsPassive) ?
+					{passive: false} : false);
 				updateListenerList(element, eventName, funct);
 			};
 		}
@@ -9923,8 +10141,6 @@ var mxEvent =
 					evt.preventDefault();
 				}
 
-				var delta = -evt.deltaY;
-				
 				// Handles the event using the given function
 				if (Math.abs(evt.deltaX) > 0.5 || Math.abs(evt.deltaY) > 0.5)
 				{
@@ -11032,6 +11248,9 @@ var mxEvent =
 	PINCH_THRESHOLD: 10
 
 };
+
+__mxOutput.mxEvent = typeof mxEvent !== 'undefined' ? mxEvent : undefined;
+
 /**
  * Copyright (c) 2006-2020, JGraph Ltd
  * Copyright (c) 2006-2020, draw.io AG
@@ -11487,6 +11706,9 @@ mxXmlRequest.prototype.simulate = function(doc, target)
 		window.onbeforeunload = old;
 	}
 };
+
+__mxOutput.mxXmlRequest = typeof mxXmlRequest !== 'undefined' ? mxXmlRequest : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -11708,6 +11930,9 @@ var mxClipboard =
 	}
 
 };
+
+__mxOutput.mxClipboard = typeof mxClipboard !== 'undefined' ? mxClipboard : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -12840,6 +13065,9 @@ mxWindow.prototype.destroy = function()
 	this.content = null;
 	this.contentWrapper = null;
 };
+
+__mxOutput.mxWindow = typeof mxWindow !== 'undefined' ? mxWindow : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -13042,6 +13270,9 @@ mxForm.prototype.addField = function(name, input)
 	
 	return input;
 };
+
+__mxOutput.mxForm = typeof mxForm !== 'undefined' ? mxForm : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -13082,6 +13313,9 @@ mxImage.prototype.width = null;
  * Integer that specifies the height of the image.
  */
 mxImage.prototype.height = null;
+
+__mxOutput.mxImage = typeof mxImage !== 'undefined' ? mxImage : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -13233,6 +13467,9 @@ mxDivResizer.prototype.getDocumentHeight = function()
 {
 	return document.body.clientHeight;
 };
+
+__mxOutput.mxDivResizer = typeof mxDivResizer !== 'undefined' ? mxDivResizer : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -13958,6 +14195,9 @@ mxDragSource.prototype.drop = function(graph, evt, dropTarget, x, y)
 		graph.container.focus();
 	}
 };
+
+__mxOutput.mxDragSource = typeof mxDragSource !== 'undefined' ? mxDragSource : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -14485,6 +14725,9 @@ mxToolbar.prototype.destroy = function ()
 		this.menu.destroy();
 	}
 };
+
+__mxOutput.mxToolbar = typeof mxToolbar !== 'undefined' ? mxToolbar : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -14698,6 +14941,9 @@ mxUndoableEdit.prototype.redo = function()
 	
 	this.notify();
 };
+
+__mxOutput.mxUndoableEdit = typeof mxUndoableEdit !== 'undefined' ? mxUndoableEdit : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -14927,6 +15173,9 @@ mxUndoManager.prototype.trim = function()
 		}
 	}
 };
+
+__mxOutput.mxUndoManager = typeof mxUndoManager !== 'undefined' ? mxUndoManager : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -15080,6 +15329,9 @@ mxUrlConverter.prototype.convert = function(url)
 	
 	return url;
 };
+
+__mxOutput.mxUrlConverter = typeof mxUrlConverter !== 'undefined' ? mxUrlConverter : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -15345,6 +15597,9 @@ mxPanningManager.prototype.handleMouseOut = true;
  * Border to handle automatic panning inside the component. Default is 0 (disabled).
  */
 mxPanningManager.prototype.border = 0;
+
+__mxOutput.mxPanningManager = typeof mxPanningManager !== 'undefined' ? mxPanningManager : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -15965,6 +16220,9 @@ mxPopupMenu.prototype.destroy = function()
 		this.div = null;
 	}
 };
+
+__mxOutput.mxPopupMenu = typeof mxPopupMenu !== 'undefined' ? mxPopupMenu : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -16178,6 +16436,9 @@ mxAutoSaveManager.prototype.destroy = function()
 {
 	this.setGraph(null);
 };
+
+__mxOutput.mxAutoSaveManager = typeof mxAutoSaveManager !== 'undefined' ? mxAutoSaveManager : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -16270,6 +16531,9 @@ mxAnimation.prototype.stopAnimation = function()
 		this.fireEvent(new mxEventObject(mxEvent.DONE));
 	}
 };
+
+__mxOutput.mxAnimation = typeof mxAnimation !== 'undefined' ? mxAnimation : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -16519,6 +16783,9 @@ mxMorphing.prototype.getOriginForCell = function(cell)
 	
 	return result;
 };
+
+__mxOutput.mxMorphing = typeof mxMorphing !== 'undefined' ? mxMorphing : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -16622,6 +16889,9 @@ mxImageBundle.prototype.getImage = function(key)
 	
 	return result;
 };
+
+__mxOutput.mxImageBundle = typeof mxImageBundle !== 'undefined' ? mxImageBundle : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -16804,6 +17074,9 @@ mxImageExport.prototype.drawOverlays = function(state, canvas)
 		});
 	}
 };
+
+
+__mxOutput.mxImageExport = typeof mxImageExport !== 'undefined' ? mxImageExport : undefined;
 
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
@@ -17447,6 +17720,9 @@ mxAbstractCanvas2D.prototype.close = function(x1, y1, x2, y2, x3, y3)
  * Empty implementation for backwards compatibility. This will be removed.
  */
 mxAbstractCanvas2D.prototype.end = function() { };
+
+__mxOutput.mxAbstractCanvas2D = typeof mxAbstractCanvas2D !== 'undefined' ? mxAbstractCanvas2D : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -18664,6 +18940,9 @@ mxXmlCanvas2D.prototype.fillAndStroke = function()
 {
 	this.root.appendChild(this.createElement('fillstroke'));
 };
+
+__mxOutput.mxXmlCanvas2D = typeof mxXmlCanvas2D !== 'undefined' ? mxXmlCanvas2D : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -20613,6 +20892,9 @@ mxSvgCanvas2D.prototype.fillAndStroke = function()
 {
 	this.addNode(true, true);
 };
+
+__mxOutput.mxSvgCanvas2D = typeof mxSvgCanvas2D !== 'undefined' ? mxSvgCanvas2D : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -21715,6 +21997,9 @@ mxVmlCanvas2D.prototype.fillAndStroke = function()
 {
 	this.addNode(true, true);
 };
+
+__mxOutput.mxVmlCanvas2D = typeof mxVmlCanvas2D !== 'undefined' ? mxVmlCanvas2D : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -22163,6 +22448,9 @@ mxGuide.prototype.destroy = function()
 		this.guideY = null;
 	}
 };
+
+__mxOutput.mxGuide = typeof mxGuide !== 'undefined' ? mxGuide : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -23835,6 +24123,9 @@ mxShape.prototype.destroy = function()
 	this.releaseSvgGradients(this.oldGradients);
 	this.oldGradients = null;
 };
+
+__mxOutput.mxShape = typeof mxShape !== 'undefined' ? mxShape : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -24702,6 +24993,9 @@ mxStencil.prototype.drawNode = function(canvas, shape, node, aspect, disableShad
 		}
 	}
 };
+
+__mxOutput.mxStencil = typeof mxStencil !== 'undefined' ? mxStencil : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -24755,6 +25049,9 @@ var mxStencilRegistry =
 	}
 
 };
+
+__mxOutput.mxStencilRegistry = typeof mxStencilRegistry !== 'undefined' ? mxStencilRegistry : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -24963,6 +25260,9 @@ var mxMarker =
 	mxMarker.addMarker('diamond', diamond);
 	mxMarker.addMarker('diamondThin', diamond);
 })();
+
+__mxOutput.mxMarker = typeof mxMarker !== 'undefined' ? mxMarker : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -25049,6 +25349,9 @@ mxActor.prototype.redrawPath = function(c, x, y, w, h)
 	c.curveTo(w, 2 * h / 5, w, 3 * h / 5, w, h);
 	c.close();
 };
+
+__mxOutput.mxActor = typeof mxActor !== 'undefined' ? mxActor : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -25104,6 +25407,9 @@ mxCloud.prototype.redrawPath = function(c, x, y, w, h)
 	c.curveTo(0.5 * w, 0.05 * h, 0.3 * w, 0.05 * h, 0.25 * w, 0.25 * h);
 	c.close();
 };
+
+__mxOutput.mxCloud = typeof mxCloud !== 'undefined' ? mxCloud : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -25231,6 +25537,9 @@ mxRectangleShape.prototype.paintForeground = function(c, x, y, w, h)
 		this.paintGlassEffect(c, x, y, w, h, this.getArcSize(w + this.strokewidth, h + this.strokewidth));
 	}
 };
+
+__mxOutput.mxRectangleShape = typeof mxRectangleShape !== 'undefined' ? mxRectangleShape : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -25279,6 +25588,9 @@ mxEllipse.prototype.paintVertexShape = function(c, x, y, w, h)
 	c.ellipse(x, y, w, h);
 	c.fillAndStroke();
 };
+
+__mxOutput.mxEllipse = typeof mxEllipse !== 'undefined' ? mxEllipse : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -25393,6 +25705,9 @@ mxDoubleEllipse.prototype.getLabelBounds = function(rect)
 
 	return new mxRectangle(rect.x + margin, rect.y + margin, rect.width - 2 * margin, rect.height - 2 * margin);
 };
+
+__mxOutput.mxDoubleEllipse = typeof mxDoubleEllipse !== 'undefined' ? mxDoubleEllipse : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -25457,6 +25772,9 @@ mxRhombus.prototype.paintVertexShape = function(c, x, y, w, h)
 	     new mxPoint(x, y + hh)], this.isRounded, arcSize, true);
 	c.fillAndStroke();
 };
+
+__mxOutput.mxRhombus = typeof mxRhombus !== 'undefined' ? mxRhombus : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -25589,6 +25907,9 @@ mxPolyline.prototype.paintCurvedLine = function(c, pts)
 	c.quadTo(p0.x, p0.y, p1.x, p1.y);
 	c.stroke();
 };
+
+__mxOutput.mxPolyline = typeof mxPolyline !== 'undefined' ? mxPolyline : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -25704,6 +26025,9 @@ mxArrow.prototype.paintEdgeShape = function(c, pts)
 
 	c.fillAndStroke();
 };
+
+__mxOutput.mxArrow = typeof mxArrow !== 'undefined' ? mxArrow : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -26199,6 +26523,8 @@ mxArrowConnector.prototype.isMarkerEnd = function()
 {
 	return (mxUtils.getValue(this.style, mxConstants.STYLE_ENDARROW, mxConstants.NONE) != mxConstants.NONE);
 };
+__mxOutput.mxArrowConnector = typeof mxArrowConnector !== 'undefined' ? mxArrowConnector : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -27636,6 +27962,9 @@ mxText.prototype.getSpacing = function()
 	
 	return new mxPoint(dx, dy);
 };
+
+__mxOutput.mxText = typeof mxText !== 'undefined' ? mxText : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -27679,6 +28008,9 @@ mxTriangle.prototype.redrawPath = function(c, x, y, w, h)
 	var arcSize = mxUtils.getValue(this.style, mxConstants.STYLE_ARCSIZE, mxConstants.LINE_ARCSIZE) / 2;
 	this.addPoints(c, [new mxPoint(0, 0), new mxPoint(w, 0.5 * h), new mxPoint(0, h)], this.isRounded, arcSize, true);
 };
+
+__mxOutput.mxTriangle = typeof mxTriangle !== 'undefined' ? mxTriangle : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -27713,6 +28045,9 @@ mxHexagon.prototype.redrawPath = function(c, x, y, w, h)
 	this.addPoints(c, [new mxPoint(0.25 * w, 0), new mxPoint(0.75 * w, 0), new mxPoint(w, 0.5 * h), new mxPoint(0.75 * w, h),
 	                   new mxPoint(0.25 * w, h), new mxPoint(0, 0.5 * h)], this.isRounded, arcSize, true);
 };
+
+__mxOutput.mxHexagon = typeof mxHexagon !== 'undefined' ? mxHexagon : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -27782,6 +28117,9 @@ mxLine.prototype.paintVertexShape = function(c, x, y, w, h)
 
 	c.stroke();
 };
+
+__mxOutput.mxLine = typeof mxLine !== 'undefined' ? mxLine : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -28025,6 +28363,9 @@ mxImageShape.prototype.redrawHtmlShape = function()
 		this.setTransparentBackgroundImage(this.node);
 	}
 };
+
+__mxOutput.mxImageShape = typeof mxImageShape !== 'undefined' ? mxImageShape : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -28301,6 +28642,9 @@ mxLabel.prototype.redrawHtmlShape = function()
 		this.node.appendChild(node);
 	}
 };
+
+__mxOutput.mxLabel = typeof mxLabel !== 'undefined' ? mxLabel : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -28419,6 +28763,9 @@ mxCylinder.prototype.redrawPath = function(c, x, y, w, h, isForeground)
 		c.close();
 	}
 };
+
+__mxOutput.mxCylinder = typeof mxCylinder !== 'undefined' ? mxCylinder : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -28568,6 +28915,9 @@ mxConnector.prototype.augmentBoundingBox = function(bbox)
 	
 	bbox.grow(size * this.scale);
 };
+
+__mxOutput.mxConnector = typeof mxConnector !== 'undefined' ? mxConnector : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -29073,6 +29423,9 @@ mxSwimlane.prototype.getImageBounds = function(x, y, w, h)
 		return new mxRectangle(x, y, this.imageSize, this.imageSize);
 	}
 };
+
+__mxOutput.mxSwimlane = typeof mxSwimlane !== 'undefined' ? mxSwimlane : undefined;
+
 /**
  * Copyright (c) 2006-2018, JGraph Ltd
  * Copyright (c) 2006-2018, Gaudenz Alder
@@ -29664,6 +30017,9 @@ WeightedCellSorter.prototype.compare = function(a, b)
 		return 0;
 	}
 };
+
+__mxOutput.mxGraphLayout = typeof mxGraphLayout !== 'undefined' ? mxGraphLayout : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -30267,6 +30623,9 @@ mxStackLayout.prototype.updateParentGeometry = function(parent, pgeo, last)
 		model.setGeometry(parent, pgeo2);
 	}
 };
+
+__mxOutput.mxStackLayout = typeof mxStackLayout !== 'undefined' ? mxStackLayout : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -30507,6 +30866,9 @@ mxPartitionLayout.prototype.execute = function(parent)
 		}
 	}
 };
+
+__mxOutput.mxPartitionLayout = typeof mxPartitionLayout !== 'undefined' ? mxPartitionLayout : undefined;
+
 /**
  * Copyright (c) 2006-2018, JGraph Ltd
  * Copyright (c) 2006-2018, Gaudenz Alder
@@ -31623,6 +31985,8 @@ mxCompactTreeLayout.prototype.processNodeOutgoing = function(node)
 		maxYOffset = Math.max(maxYOffset, currentYOffset);
 	}
 };
+__mxOutput.mxCompactTreeLayout = typeof mxCompactTreeLayout !== 'undefined' ? mxCompactTreeLayout : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -31941,6 +32305,9 @@ mxRadialTreeLayout.prototype.calcRowDims = function(row, rowNum)
 		this.calcRowDims(this.row[rowNum], rowNum + 1);
 	}
 };
+
+__mxOutput.mxRadialTreeLayout = typeof mxRadialTreeLayout !== 'undefined' ? mxRadialTreeLayout : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -32532,6 +32899,9 @@ mxFastOrganicLayout.prototype.reduceTemperature = function()
 {
 	this.temperature = this.initialTemp * (1.0 - this.iteration / this.maxIterations);
 };
+
+__mxOutput.mxFastOrganicLayout = typeof mxFastOrganicLayout !== 'undefined' ? mxFastOrganicLayout : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -32735,6 +33105,9 @@ mxCircleLayout.prototype.circle = function(vertices, r, left, top)
 		}
 	}
 };
+
+__mxOutput.mxCircleLayout = typeof mxCircleLayout !== 'undefined' ? mxCircleLayout : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -33005,6 +33378,9 @@ mxParallelEdgeLayout.prototype.route = function(edge, x, y)
 		this.setEdgePoints(edge, [new mxPoint(x, y)]);
 	}
 };
+
+__mxOutput.mxParallelEdgeLayout = typeof mxParallelEdgeLayout !== 'undefined' ? mxParallelEdgeLayout : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -33106,6 +33482,9 @@ mxCompositeLayout.prototype.execute = function(parent)
 		model.endUpdate();
 	}
 };
+
+__mxOutput.mxCompositeLayout = typeof mxCompositeLayout !== 'undefined' ? mxCompositeLayout : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -33271,6 +33650,9 @@ mxEdgeLabelLayout.prototype.avoid = function(edge, vertex)
 		}
 	}
 };
+
+__mxOutput.mxEdgeLabelLayout = typeof mxEdgeLabelLayout !== 'undefined' ? mxEdgeLabelLayout : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -33471,6 +33853,9 @@ mxGraphAbstractHierarchyCell.prototype.setY = function(layer, value)
 		this.y[layer -this. minRank - 1] = value;
 	}
 };
+
+__mxOutput.mxGraphAbstractHierarchyCell = typeof mxGraphAbstractHierarchyCell !== 'undefined' ? mxGraphAbstractHierarchyCell : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -33691,6 +34076,9 @@ mxGraphHierarchyNode.prototype.getCoreCell = function()
 {
 	return this.cell;
 };
+
+__mxOutput.mxGraphHierarchyNode = typeof mxGraphHierarchyNode !== 'undefined' ? mxGraphHierarchyNode : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -33878,6 +34266,9 @@ mxGraphHierarchyEdge.prototype.getCoreCell = function()
 	
 	return null;
 };
+
+__mxOutput.mxGraphHierarchyEdge = typeof mxGraphHierarchyEdge !== 'undefined' ? mxGraphHierarchyEdge : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -34559,6 +34950,9 @@ mxGraphHierarchyModel.prototype.extendedDfs = function(parent, root, connectingE
 		}
 	}
 };
+
+__mxOutput.mxGraphHierarchyModel = typeof mxGraphHierarchyModel !== 'undefined' ? mxGraphHierarchyModel : undefined;
+
 /**
  * Copyright (c) 2006-2018, JGraph Ltd
  * Copyright (c) 2006-2018, Gaudenz Alder
@@ -35360,6 +35754,9 @@ mxSwimlaneModel.prototype.extendedDfs = function(parent, root, connectingEdge, v
 		}
 	}
 };
+
+__mxOutput.mxSwimlaneModel = typeof mxSwimlaneModel !== 'undefined' ? mxSwimlaneModel : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -35385,6 +35782,9 @@ function mxHierarchicalLayoutStage() { };
  * use.
  */
 mxHierarchicalLayoutStage.prototype.execute = function(parent) { };
+
+__mxOutput.mxHierarchicalLayoutStage = typeof mxHierarchicalLayoutStage !== 'undefined' ? mxHierarchicalLayoutStage : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -36060,6 +36460,9 @@ MedianCellSorter.prototype.compare = function(a, b)
 		return 0;
 	}
 };
+
+__mxOutput.mxMedianHybridCrossingReduction = typeof mxMedianHybridCrossingReduction !== 'undefined' ? mxMedianHybridCrossingReduction : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -36168,6 +36571,9 @@ mxMinimumCycleRemover.prototype.execute = function(parent)
 		delete unseenNodes[node.id];
 	}, unseenNodes, true, seenNodesCopy);
 };
+
+__mxOutput.mxMinimumCycleRemover = typeof mxMinimumCycleRemover !== 'undefined' ? mxMinimumCycleRemover : undefined;
+
 /**
  * Copyright (c) 2006-2018, JGraph Ltd
  * Copyright (c) 2006-2018, Gaudenz Alder
@@ -37911,6 +38317,9 @@ mxCoordinateAssignment.prototype.processReversedEdge = function(graph, model)
 {
 	// hook for subclassers
 };
+
+__mxOutput.mxCoordinateAssignment = typeof mxCoordinateAssignment !== 'undefined' ? mxCoordinateAssignment : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -38006,6 +38415,9 @@ mxSwimlaneOrdering.prototype.execute = function(parent)
 		delete unseenNodes[cellId];
 	}, rootsArray, true, null);
 };
+
+__mxOutput.mxSwimlaneOrdering = typeof mxSwimlaneOrdering !== 'undefined' ? mxSwimlaneOrdering : undefined;
+
 /**
  * Copyright (c) 2006-2018, JGraph Ltd
  * Copyright (c) 2006-2018, Gaudenz Alder
@@ -38857,6 +39269,9 @@ mxHierarchicalLayout.prototype.placementStage = function(initialX, parent)
 	
 	return placementStage.limitX + this.interHierarchySpacing;
 };
+
+__mxOutput.mxHierarchicalLayout = typeof mxHierarchicalLayout !== 'undefined' ? mxHierarchicalLayout : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -39790,6 +40205,9 @@ mxSwimlaneLayout.prototype.placementStage = function(initialX, parent)
 	
 	return placementStage.limitX + this.interHierarchySpacing;
 };
+
+__mxOutput.mxSwimlaneLayout = typeof mxSwimlaneLayout !== 'undefined' ? mxSwimlaneLayout : undefined;
+
 /**
  * Copyright (c) 2006-2018, JGraph Ltd
  * Copyright (c) 2006-2018, Gaudenz Alder
@@ -42495,6 +42913,9 @@ mxCellAttributeChange.prototype.execute = function()
 		this.previous = tmp;
 	}
 };
+
+__mxOutput.mxGraphModel = typeof mxGraphModel !== 'undefined' ? mxGraphModel : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -43320,6 +43741,9 @@ mxCell.prototype.cloneValue = function()
 	
 	return value;
 };
+
+__mxOutput.mxCell = typeof mxCell !== 'undefined' ? mxCell : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -43735,6 +44159,9 @@ mxGeometry.prototype.equals = function(obj)
 		((this.alternateBounds == null && obj.alternateBounds == null) || (this.alternateBounds != null && this.alternateBounds.equals(obj.alternateBounds))) &&
 		((this.offset == null && obj.offset == null) || (this.offset != null && this.offset.equals(obj.offset)));
 };
+
+__mxOutput.mxGeometry = typeof mxGeometry !== 'undefined' ? mxGeometry : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -43898,6 +44325,9 @@ var mxCellPath =
 	}
 
 };
+
+__mxOutput.mxCellPath = typeof mxCellPath !== 'undefined' ? mxCellPath : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -44819,6 +45249,9 @@ var mxPerimeter =
 		return result;
 	}
 };
+
+__mxOutput.mxPerimeter = typeof mxPerimeter !== 'undefined' ? mxPerimeter : undefined;
+
 /**
  * Copyright (c) 2006-2019, JGraph Ltd
  * Copyright (c) 2006-2017, draw.io AG
@@ -46053,6 +46486,9 @@ mxPrintPreview.prototype.close = function()
 		this.wnd = null;
 	}
 };
+
+__mxOutput.mxPrintPreview = typeof mxPrintPreview !== 'undefined' ? mxPrintPreview : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -46319,6 +46755,9 @@ mxStylesheet.prototype.getCellStyle = function(name, defaultStyle)
 
 	return style;
 };
+
+__mxOutput.mxStylesheet = typeof mxStylesheet !== 'undefined' ? mxStylesheet : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -46766,6 +47205,9 @@ mxCellState.prototype.destroy = function()
 {
 	this.view.graph.cellRenderer.destroy(this);
 };
+
+__mxOutput.mxCellState = typeof mxCellState !== 'undefined' ? mxCellState : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -47202,6 +47644,9 @@ mxSelectionChange.prototype.execute = function()
 	this.selectionModel.fireEvent(new mxEventObject(mxEvent.CHANGE,
 			'added', this.added, 'removed', this.removed));
 };
+
+__mxOutput.mxGraphSelectionModel = typeof mxGraphSelectionModel !== 'undefined' ? mxGraphSelectionModel : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -48422,6 +48867,9 @@ mxCellEditor.prototype.destroy = function ()
 		this.zoomHandler = null;
 	}
 };
+
+__mxOutput.mxCellEditor = typeof mxCellEditor !== 'undefined' ? mxCellEditor : undefined;
+
 /**
  * Copyright (c) 2006-2017, JGraph Ltd
  * Copyright (c) 2006-2017, Gaudenz Alder
@@ -50061,6 +50509,9 @@ mxCellRenderer.prototype.destroy = function(state)
 		state.shape = null;
 	}
 };
+
+__mxOutput.mxCellRenderer = typeof mxCellRenderer !== 'undefined' ? mxCellRenderer : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -51714,6 +52165,8 @@ var mxEdgeStyle =
 		return result;
 	}
 };
+__mxOutput.mxEdgeStyle = typeof mxEdgeStyle !== 'undefined' ? mxEdgeStyle : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -51785,6 +52238,9 @@ mxStyleRegistry.putValue(mxConstants.PERIMETER_RECTANGLE, mxPerimeter.RectangleP
 mxStyleRegistry.putValue(mxConstants.PERIMETER_RHOMBUS, mxPerimeter.RhombusPerimeter);
 mxStyleRegistry.putValue(mxConstants.PERIMETER_TRIANGLE, mxPerimeter.TrianglePerimeter);
 mxStyleRegistry.putValue(mxConstants.PERIMETER_HEXAGON, mxPerimeter.HexagonPerimeter);
+
+__mxOutput.mxStyleRegistry = typeof mxStyleRegistry !== 'undefined' ? mxStyleRegistry : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -53886,29 +54342,27 @@ mxGraphView.prototype.getRelativePoint = function(edgeState, x, y)
 			var totalLength = edgeState.length;
 			var segments = edgeState.segments;
 
-			// Works which line segment the point of the label is closest to
+			// Works out which line segment the point of the label is closest to
 			var p0 = edgeState.absolutePoints[0];
 			var pe = edgeState.absolutePoints[1];
 			var minDist = mxUtils.ptSegDistSq(p0.x, p0.y, pe.x, pe.y, x, y);
-
+			var length = 0;
 			var index = 0;
 			var tmp = 0;
-			var length = 0;
 			
 			for (var i = 2; i < pointCount; i++)
 			{
-				tmp += segments[i - 2];
+				p0 = pe;
 				pe = edgeState.absolutePoints[i];
 				var dist = mxUtils.ptSegDistSq(p0.x, p0.y, pe.x, pe.y, x, y);
-
+				tmp += segments[i - 2];
+				
 				if (dist <= minDist)
 				{
 					minDist = dist;
 					index = i - 1;
 					length = tmp;
 				}
-				
-				p0 = pe;
 			}
 			
 			var seg = segments[index];
@@ -54809,6 +55263,9 @@ mxCurrentRootChange.prototype.execute = function()
 		'root', this.view.currentRoot, 'previous', this.previous));
 	this.isUp = !this.isUp;
 };
+
+__mxOutput.mxGraphView = typeof mxGraphView !== 'undefined' ? mxGraphView : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -62816,8 +63273,8 @@ mxGraph.prototype.center = function(horizontal, vertical, cx, cy)
 	
 	if (!hasScrollbars)
 	{
-		this.view.setTranslate((horizontal) ? Math.floor(t.x - bounds.x * s + dx * cx / s) : t.x,
-			(vertical) ? Math.floor(t.y - bounds.y * s + dy * cy / s) : t.y);
+		this.view.setTranslate((horizontal) ? Math.floor(t.x - bounds.x / s + dx * cx / s) : t.x,
+			(vertical) ? Math.floor(t.y - bounds.y / s + dy * cy / s) : t.y);
 	}
 	else
 	{
@@ -68038,6 +68495,9 @@ mxGraph.prototype.destroy = function()
 		this.container = null;
 	}
 };
+
+__mxOutput.mxGraph = typeof mxGraph !== 'undefined' ? mxGraph : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -68271,6 +68731,9 @@ mxCellOverlay.prototype.toString = function()
 {
 	return this.tooltip;
 };
+
+__mxOutput.mxCellOverlay = typeof mxCellOverlay !== 'undefined' ? mxCellOverlay : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -69033,6 +69496,9 @@ mxOutline.prototype.destroy = function()
 		this.sizer = null;
 	}
 };
+
+__mxOutput.mxOutline = typeof mxOutline !== 'undefined' ? mxOutline : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -69290,6 +69756,9 @@ mxMultiplicity.prototype.checkType = function(graph, value, type, attr, attrValu
 	
 	return false;
 };
+
+__mxOutput.mxMultiplicity = typeof mxMultiplicity !== 'undefined' ? mxMultiplicity : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -69790,6 +70259,9 @@ mxLayoutManager.prototype.destroy = function()
 {
 	this.setGraph(null);
 };
+
+__mxOutput.mxLayoutManager = typeof mxLayoutManager !== 'undefined' ? mxLayoutManager : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -70240,6 +70712,9 @@ mxSwimlaneManager.prototype.destroy = function()
 {
 	this.setGraph(null);
 };
+
+__mxOutput.mxSwimlaneManager = typeof mxSwimlaneManager !== 'undefined' ? mxSwimlaneManager : undefined;
+
 /**
  * Copyright (c) 2006-2017, JGraph Ltd
  * Copyright (c) 2006-2017, Gaudenz Alder
@@ -70373,6 +70848,9 @@ mxTemporaryCellStates.prototype.destroy = function()
 	this.view.validateCellState = this.oldValidateCellState;
 	this.view.graph.cellRenderer.doRedrawShape = this.oldDoRedrawShape;
 };
+
+__mxOutput.mxTemporaryCellStates = typeof mxTemporaryCellStates !== 'undefined' ? mxTemporaryCellStates : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -70576,6 +71054,9 @@ mxCellStatePreview.prototype.addEdges = function(state)
 		}
 	}
 };
+
+__mxOutput.mxCellStatePreview = typeof mxCellStatePreview !== 'undefined' ? mxCellStatePreview : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -70642,6 +71123,9 @@ mxConnectionConstraint.prototype.dx = null;
  * Optional float that specifies the vertical offset of the constraint.
  */
 mxConnectionConstraint.prototype.dy = null;
+
+
+__mxOutput.mxConnectionConstraint = typeof mxConnectionConstraint !== 'undefined' ? mxConnectionConstraint : undefined;
 
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
@@ -72508,6 +72992,9 @@ mxGraphHandler.prototype.destroy = function()
 	this.destroyShapes();
 	this.removeHint();
 };
+
+__mxOutput.mxGraphHandler = typeof mxGraphHandler !== 'undefined' ? mxGraphHandler : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -73002,6 +73489,9 @@ mxPanningHandler.prototype.destroy = function()
 	this.graph.removeListener(this.gestureHandler);
 	mxEvent.removeListener(document, 'mouseup', this.mouseUpListener);
 };
+
+__mxOutput.mxPanningHandler = typeof mxPanningHandler !== 'undefined' ? mxPanningHandler : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -73220,6 +73710,9 @@ mxPopupMenuHandler.prototype.destroy = function()
 	// Supercall
 	mxPopupMenu.prototype.destroy.apply(this);
 };
+
+__mxOutput.mxPopupMenuHandler = typeof mxPopupMenuHandler !== 'undefined' ? mxPopupMenuHandler : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -73650,6 +74143,9 @@ mxCellMarker.prototype.destroy = function()
 	this.graph.getModel().removeListener(this.resetHandler);
 	this.highlight.destroy();
 };
+
+__mxOutput.mxCellMarker = typeof mxCellMarker !== 'undefined' ? mxCellMarker : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -73994,6 +74490,9 @@ mxSelectionCellsHandler.prototype.destroy = function()
 		this.refreshHandler = null;
 	}
 };
+
+__mxOutput.mxSelectionCellsHandler = typeof mxSelectionCellsHandler !== 'undefined' ? mxSelectionCellsHandler : undefined;
+
 /**
  * Copyright (c) 2006-2016, JGraph Ltd
  * Copyright (c) 2006-2016, Gaudenz Alder
@@ -76243,6 +76742,9 @@ mxConnectionHandler.prototype.destroy = function()
 		this.escapeHandler = null;
 	}
 };
+
+__mxOutput.mxConnectionHandler = typeof mxConnectionHandler !== 'undefined' ? mxConnectionHandler : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -76760,6 +77262,9 @@ mxConstraintHandler.prototype.destroy = function()
 		this.mouseleaveHandler = null;
 	}
 };
+
+__mxOutput.mxConstraintHandler = typeof mxConstraintHandler !== 'undefined' ? mxConstraintHandler : undefined;
+
 /**
  * Copyright (c) 2006-2016, JGraph Ltd
  * Copyright (c) 2006-2016, Gaudenz Alder
@@ -77189,6 +77694,9 @@ mxRubberband.prototype.destroy = function()
 		}
 	}
 };
+
+__mxOutput.mxRubberband = typeof mxRubberband !== 'undefined' ? mxRubberband : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -77541,6 +78049,9 @@ mxHandle.prototype.destroy = function()
 		this.shape = null;
 	}
 };
+
+__mxOutput.mxHandle = typeof mxHandle !== 'undefined' ? mxHandle : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -79792,6 +80303,9 @@ mxVertexHandler.prototype.destroy = function()
 		this.customHandles = null;
 	}
 };
+
+__mxOutput.mxVertexHandler = typeof mxVertexHandler !== 'undefined' ? mxVertexHandler : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -82336,6 +82850,9 @@ mxEdgeHandler.prototype.destroy = function()
 	
 	this.removeHint();
 };
+
+__mxOutput.mxEdgeHandler = typeof mxEdgeHandler !== 'undefined' ? mxEdgeHandler : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -82566,6 +83083,9 @@ mxElbowEdgeHandler.prototype.redrawInnerBends = function(p0, pe)
 		this.checkLabelHandle(this.bends[1].bounds);
 	}
 };
+
+__mxOutput.mxElbowEdgeHandler = typeof mxElbowEdgeHandler !== 'undefined' ? mxElbowEdgeHandler : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -82979,6 +83499,9 @@ mxEdgeSegmentHandler.prototype.redrawInnerBends = function(p0, pe)
 		}
 	}
 };
+
+__mxOutput.mxEdgeSegmentHandler = typeof mxEdgeSegmentHandler !== 'undefined' ? mxEdgeSegmentHandler : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -83407,6 +83930,9 @@ mxKeyHandler.prototype.destroy = function()
 	
 	this.target = null;
 };
+
+__mxOutput.mxKeyHandler = typeof mxKeyHandler !== 'undefined' ? mxKeyHandler : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -83760,6 +84286,9 @@ mxTooltipHandler.prototype.destroy = function()
 		this.div = null;
 	}
 };
+
+__mxOutput.mxTooltipHandler = typeof mxTooltipHandler !== 'undefined' ? mxTooltipHandler : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -83905,6 +84434,9 @@ mxCellTracker.prototype.destroy = function()
 		mxCellMarker.prototype.destroy.apply(this);
 	}
 };
+
+__mxOutput.mxCellTracker = typeof mxCellTracker !== 'undefined' ? mxCellTracker : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -84219,6 +84751,9 @@ mxCellHighlight.prototype.destroy = function()
 		this.shape = null;
 	}
 };
+
+__mxOutput.mxCellHighlight = typeof mxCellHighlight !== 'undefined' ? mxCellHighlight : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -84345,6 +84880,9 @@ mxDefaultKeyHandler.prototype.destroy = function ()
 	this.handler.destroy();
 	this.handler = null;
 };
+
+__mxOutput.mxDefaultKeyHandler = typeof mxDefaultKeyHandler !== 'undefined' ? mxDefaultKeyHandler : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -84651,6 +85189,9 @@ mxDefaultPopupMenu.prototype.createConditions = function(editor, cell, evt)
 	
 	return conditions;
 };
+
+__mxOutput.mxDefaultPopupMenu = typeof mxDefaultPopupMenu !== 'undefined' ? mxDefaultPopupMenu : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -85215,6 +85756,9 @@ mxDefaultToolbar.prototype.destroy = function ()
 		this.toolbar = null;
 	}
 };
+
+__mxOutput.mxDefaultToolbar = typeof mxDefaultToolbar !== 'undefined' ? mxDefaultToolbar : undefined;
+
 /**
  * Copyright (c) 2006-2019, JGraph Ltd
  * Copyright (c) 2006-2019, draw.io AG
@@ -88333,6 +88877,9 @@ mxEditor.prototype.destroy = function ()
 		this.templates = null;
 	}
 };
+
+__mxOutput.mxEditor = typeof mxEditor !== 'undefined' ? mxEditor : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -88470,6 +89017,9 @@ var mxCodecRegistry =
 	}
 
 };
+
+__mxOutput.mxCodecRegistry = typeof mxCodecRegistry !== 'undefined' ? mxCodecRegistry : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -89091,6 +89641,9 @@ mxCodec.prototype.setAttribute = function(node, attribute, value)
 		node.setAttribute(attribute, value);
 	}
 };
+
+__mxOutput.mxCodec = typeof mxCodec !== 'undefined' ? mxCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -90188,6 +90741,9 @@ mxObjectCodec.prototype.afterDecode = function(dec, node, obj)
 {
 	return obj;
 };
+
+__mxOutput.mxObjectCodec = typeof mxObjectCodec !== 'undefined' ? mxObjectCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -90377,6 +90933,9 @@ mxCodecRegistry.register(function()
 	return codec;
 
 }());
+
+__mxOutput.mxCellCodec = typeof mxCellCodec !== 'undefined' ? mxCellCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -90457,6 +91016,9 @@ mxCodecRegistry.register(function()
 	return codec;
 
 }());
+
+__mxOutput.mxModelCodec = typeof mxModelCodec !== 'undefined' ? mxModelCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -90540,6 +91102,9 @@ mxCodecRegistry.register(function()
 	return codec;
 
 }());
+
+__mxOutput.mxRootChangeCodec = typeof mxRootChangeCodec !== 'undefined' ? mxRootChangeCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -90708,6 +91273,9 @@ mxCodecRegistry.register(function()
 	return codec;
 
 }());
+
+__mxOutput.mxChildChangeCodec = typeof mxChildChangeCodec !== 'undefined' ? mxChildChangeCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -90750,6 +91318,9 @@ mxCodecRegistry.register(function()
 	return codec;
 
 }());
+
+__mxOutput.mxTerminalChangeCodec = typeof mxTerminalChangeCodec !== 'undefined' ? mxTerminalChangeCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -90814,6 +91385,9 @@ mxCodecRegistry.register(mxGenericChangeCodec(new mxGeometryChange(), 'geometry'
 mxCodecRegistry.register(mxGenericChangeCodec(new mxCollapseChange(), 'collapsed'));
 mxCodecRegistry.register(mxGenericChangeCodec(new mxVisibleChange(), 'visible'));
 mxCodecRegistry.register(mxGenericChangeCodec(new mxCellAttributeChange(), 'value'));
+
+__mxOutput.mxGenericChangeCodec = typeof mxGenericChangeCodec !== 'undefined' ? mxGenericChangeCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -90842,6 +91416,9 @@ mxCodecRegistry.register(function()
 		'cellRenderer', 'editor', 'selection']);
 
 }());
+
+__mxOutput.mxGraphCodec = typeof mxGraphCodec !== 'undefined' ? mxGraphCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -91039,6 +91616,9 @@ mxCodecRegistry.register(function()
 	return codec;
 
 }());
+
+__mxOutput.mxGraphViewCodec = typeof mxGraphViewCodec !== 'undefined' ? mxGraphViewCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -91256,6 +91836,9 @@ var mxStylesheetCodec = mxCodecRegistry.register(function()
  * may contain user input.
  */
 mxStylesheetCodec.allowEval = true;
+
+__mxOutput.mxStylesheetCodec = typeof mxStylesheetCodec !== 'undefined' ? mxStylesheetCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -91344,6 +91927,9 @@ mxCodecRegistry.register(function()
 	return codec;
 
 }());
+
+__mxOutput.mxDefaultKeyHandlerCodec = typeof mxDefaultKeyHandlerCodec !== 'undefined' ? mxDefaultKeyHandlerCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -91656,6 +92242,9 @@ var mxDefaultToolbarCodec = mxCodecRegistry.register(function()
  * may contain user input
  */
 mxDefaultToolbarCodec.allowEval = true;
+
+__mxOutput.mxDefaultToolbarCodec = typeof mxDefaultToolbarCodec !== 'undefined' ? mxDefaultToolbarCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -91710,6 +92299,9 @@ mxCodecRegistry.register(function()
 	return codec;
 
 }());
+
+__mxOutput.mxDefaultPopupMenuCodec = typeof mxDefaultPopupMenuCodec !== 'undefined' ? mxDefaultPopupMenuCodec : undefined;
+
 /**
  * Copyright (c) 2006-2015, JGraph Ltd
  * Copyright (c) 2006-2015, Gaudenz Alder
@@ -91955,3 +92547,27 @@ mxCodecRegistry.register(function()
 	return codec;
 
 }());
+
+__mxOutput.mxEditorCodec = typeof mxEditorCodec !== 'undefined' ? mxEditorCodec : undefined;
+
+function azdataQueryPlan()
+{
+    console.log('constr');
+};
+
+azdataQueryPlan.prototype.zIndex = 10005;
+ 
+azdataQueryPlan.prototype.isEnabled = function()
+{
+    return this.zIndex;
+};
+ 
+azdataQueryPlan.prototype.init = function()
+{
+    console.log('init called')
+};
+
+__mxOutput.azdataQueryPlan = typeof azdataQueryPlan !== 'undefined' ? azdataQueryPlan : undefined;
+return __mxOutput;
+};
+}));
