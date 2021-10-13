@@ -792,6 +792,7 @@ if (mxForceIncludes || !(typeof module === 'object' && module.exports != null))
 	mxClient.include(mxClient.basePath+'/js/io/mxDefaultToolbarCodec.js');
 	mxClient.include(mxClient.basePath+'/js/io/mxDefaultPopupMenuCodec.js');
 	mxClient.include(mxClient.basePath+'/js/io/mxEditorCodec.js');
+	mxClient.include(mxClient.basePath+'/js/azdata/azdataQueryPlan.js');
 // PREPROCESSOR-REMOVE-START
 }
 // PREPROCESSOR-REMOVE-END

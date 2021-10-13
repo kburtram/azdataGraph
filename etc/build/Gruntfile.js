@@ -68,15 +68,15 @@ module.exports = function (grunt) {
           "}));"
       }
     },
-    /*webpack: {
-      examples: {
-        entry: "./javascript/examples/webpack/src/anchors.js",
-        output: {
-            path: path.resolve(process.cwd(), "./javascript/examples/webpack/dist"),
-          filename: "anchors.js"
-        }
-      }
-    },*/
+    // webpack: {
+    //   examples: {
+    //     entry: "./javascript/examples/webpack/src/anchors.js",
+    //     output: {
+    //         path: path.resolve(process.cwd(), "./javascript/examples/webpack/dist"),
+    //       filename: "anchors.js"
+    //     }
+    //   }
+    // },
     watch: {
       javascripts: {
         files: "javascript/src/**/*.js",
@@ -92,6 +92,8 @@ module.exports = function (grunt) {
   grunt.registerTask("default", [
     "copy",
     "concat"
+    // ,
+    // "webpack"
   ]);
   grunt.registerTask("build", [
     "default"

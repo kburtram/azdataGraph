@@ -804,6 +804,7 @@ if (mxForceIncludes || !(typeof module === 'object' && module.exports != null))
 	mxClient.include(mxClient.basePath+'/js/io/mxDefaultToolbarCodec.js');
 	mxClient.include(mxClient.basePath+'/js/io/mxDefaultPopupMenuCodec.js');
 	mxClient.include(mxClient.basePath+'/js/io/mxEditorCodec.js');
+	mxClient.include(mxClient.basePath+'/js/azdata/azdataQueryPlan.js');
 // PREPROCESSOR-REMOVE-START
 }
 // PREPROCESSOR-REMOVE-END
@@ -92548,6 +92549,25 @@ mxCodecRegistry.register(function()
 }());
 
 __mxOutput.mxEditorCodec = typeof mxEditorCodec !== 'undefined' ? mxEditorCodec : undefined;
+
+function azdataQueryPlan()
+{
+    console.log('constr');
+};
+
+azdataQueryPlan.prototype.zIndex = 10005;
+ 
+azdataQueryPlan.prototype.isEnabled = function()
+{
+    return this.zIndex;
+};
+ 
+azdataQueryPlan.prototype.init = function()
+{
+    console.log('init called')
+};
+
+__mxOutput.azdataQueryPlan = typeof azdataQueryPlan !== 'undefined' ? azdataQueryPlan : undefined;
 return __mxOutput;
 };
 }));
