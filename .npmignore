@@ -12,10 +12,10 @@ docs/
 dotnet/
 index.html
 java/
-javascript/debug/
-javascript/devel/
-javascript/examples/
-javascript/index.html
+debug/
+devel/
+examples/
+index.html
 mxgraph-dotnet.*suo
 php/
 pom.xml

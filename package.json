@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/kburtram/azdataGraph/issues"
   },
-  "main": "./javascript/dist/build.js",
+  "main": "./dist/build.js",
   "scripts": {
     "prepare": "grunt build --base ./ --gruntfile etc/build/Gruntfile.js"
   },

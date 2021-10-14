@@ -1,5 +1,5 @@
 node_modules
-javascript/dist
+dist
 .jshintrc
-javascript/examples/**/dist
+examples/**/dist
 .idea/

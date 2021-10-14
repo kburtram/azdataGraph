@@ -8,7 +8,7 @@ module.exports = function (grunt) {
     // mxClient.include([...]) in mxClient.js. This is not perfect, but the list is
     // required in mxClient.js for compatibility.
     mxClientContent = fs.readFileSync(
-        path.join(process.cwd(), "./javascript/src/js/mxClient.js"),
+        path.join(process.cwd(), "./src/js/mxClient.js"),
         "utf8"
     );
     deps = mxClientContent.match(/mxClient\.include\([^"']+["'](.*?)["']/gi).map(function (str) {
@@ -21,9 +21,9 @@ module.exports = function (grunt) {
       main: {
         files: [{
           expand: true,
-          cwd: "./javascript/src",
+          cwd: "./src",
           src: deps,
-          dest: "./javascript/dist"
+          dest: "./dist"
         }],
         options: {
           // After each module, add the object to the '__mxOutput' namespace
@@ -43,9 +43,9 @@ module.exports = function (grunt) {
     concat: {
       dist: {
         src: deps.map(function (dep) {
-          return path.join("./javascript/dist", dep);
+          return path.join("./dist", dep);
         }),
-        dest: './javascript/dist/build.js'
+        dest: './dist/build.js'
       },
       options: {
         banner: "(function (root, factory) {\n" +
@@ -70,16 +70,16 @@ module.exports = function (grunt) {
     },
     // webpack: {
     //   examples: {
-    //     entry: "./javascript/examples/webpack/src/anchors.js",
+    //     entry: "./examples/webpack/src/anchors.js",
     //     output: {
-    //         path: path.resolve(process.cwd(), "./javascript/examples/webpack/dist"),
+    //         path: path.resolve(process.cwd(), "./examples/webpack/dist"),
     //       filename: "anchors.js"
     //     }
     //   }
     // },
     watch: {
       javascripts: {
-        files: "javascript/src/**/*.js",
+        files: "src/**/*.js",
         tasks: ["umdify"],
         options: {
           interrupt: true
