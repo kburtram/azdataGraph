@@ -63,7 +63,7 @@ azdataQueryPlan.prototype.init = function(container)
 
     var parent = graph.getDefaultParent();
     var layout = new mxCompactTreeLayout(graph, true);
-                    
+
     graph.getModel().beginUpdate();
     try
     {
