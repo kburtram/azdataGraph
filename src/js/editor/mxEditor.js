@@ -395,14 +395,15 @@ function mxEditor(config)
  * Installs the required language resources at class
  * loading time.
  */
-if (mxLoadResources)
-{
-	mxResources.add(mxClient.basePath + '/resources/editor');
-}
-else
-{
-	mxClient.defaultBundles.push(mxClient.basePath + '/resources/editor');
-}
+// disable this call which is failing due to CORS error
+// if (mxLoadResources)
+// {
+// 	mxResources.add(mxClient.basePath + '/resources/editor');
+// }
+// else
+// {
+// 	mxClient.defaultBundles.push(mxClient.basePath + '/resources/editor');
+// }
 
 /**
  * Extends mxEventSource.

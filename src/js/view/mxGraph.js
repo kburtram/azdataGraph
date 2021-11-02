@@ -698,14 +698,15 @@ function mxGraph(container, model, renderHint, stylesheet)
  * Installs the required language resources at class
  * loading time.
  */
-if (mxLoadResources)
-{
-	mxResources.add(mxClient.basePath + '/resources/graph');
-}
-else
-{
-	mxClient.defaultBundles.push(mxClient.basePath + '/resources/graph');
-}
+// disable this call which is failing due to CORS error
+// if (mxLoadResources)
+// {
+// 	mxResources.add(mxClient.basePath + '/resources/graph');
+// }
+// else
+// {
+// 	mxClient.defaultBundles.push(mxClient.basePath + '/resources/graph');
+// }
 
 /**
  * Extends mxEventSource.
