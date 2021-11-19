@@ -3,3 +3,5 @@ dist
 .jshintrc
 examples/**/dist
 .idea/
+.DS_Store
+

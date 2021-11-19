@@ -253,7 +253,34 @@ function azdataQueryPlan(container, queryPlanGraph)
 	{
 		this.init(container);
 	}
+
+    // this.traverse(this.queryPlanGraph);
 };
+
+// azdataQueryPlan.prototype.buildGraph = function(root)
+// {
+//     var laneHeight = 40;
+//     var lane = 0;
+//     var positions = new Array();
+//     var stack = [ root ];
+//     while (stack.length > 0)
+//     {
+//         var node = stack.pop();
+//         if (node.children)
+//         {
+//             for (var i = 0; i < node.children.length; ++i)
+//             {  
+//                 var childNode = node.children[i];
+//                 stack.push(childNode);
+//             }
+//         }
+//     }
+// }
+
+azdataQueryPlan.prototype.populateGraph = function()
+{
+    
+}
 
 azdataQueryPlan.prototype.init = function(container)
 {
@@ -271,6 +298,11 @@ azdataQueryPlan.prototype.init = function(container)
     graph.panningHandler.useLeftButtonForPanning = true;
 	graph.setTooltips(true);
 	graph.setAllowDanglingEdges(false); 
+
+    graph.setDropEnabled(false);
+	graph.setSplitEnabled(false);
+
+    // var model = graph.getModel();
 
     graph.convertValueToString = function(cell)
     {
@@ -312,7 +344,39 @@ azdataQueryPlan.prototype.init = function(container)
     }
 
     var parent = graph.getDefaultParent();
-    var layout = new mxCompactTreeLayout(graph, true);
+
+    // Applies size changes to siblings and parents
+    // new mxSwimlaneManager(graph);
+    // Creates a stack depending on the orientation of the swimlane
+    // var layout = new mxStackLayout(graph, false);
+    //var layout = new mxCompactTreeLayout(graph, true);
+
+    //var layout = new azdataTreeLayout(graph, true);
+    var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
+
+
+    // var layout = new mxHierarchicalLayout(graph);
+    // var organic = new mxFastOrganicLayout(graph);
+    // organic.forceConstant = 120;
+
+
+    //layout.resizeParent = true;			
+    // Applies the size to children if parent size changes
+    //layout.fill = true;
+    // Keeps the lanes and pools stacked
+    // var layoutMgr = new mxLayoutManager(graph);
+    // layoutMgr.getLayout = function(cell)
+    // {
+    //     //if (!model.isEdge(cell) && graph.getModel().getChildCount(cell) > 0 && cell.value && cell.value.indexOf && cell.value.indexOf('Lane') < 0) { // &&
+    //     // //    (model.getParent(cell) == model.getRoot() || graph.isPool(cell)))
+    //     // if (cell.style === 'swimlane')
+    //     // {
+    //     // //     layout.fill = graph.isPool(cell);
+    //     if (model.getParent(cell) == model.getRoot()) {
+    //           return layout;
+    //     }
+    //     return layout2;
+    // };
 
     var style = new Object();
     style = mxUtils.clone(style);
@@ -324,6 +388,7 @@ azdataQueryPlan.prototype.init = function(container)
     style[mxConstants.STYLE_IMAGE_VERTICAL_ALIGN] = mxConstants.ALIGN_TOP;
     style[mxConstants.STYLE_SPACING_TOP] = '34';
     style[mxConstants.STYLE_LABEL_POSITION] = 'bottom';
+    
 
     var icons = new Array();
     for (const iconName in azdataQueryPlanIconPaths) 
@@ -335,6 +400,18 @@ azdataQueryPlan.prototype.init = function(container)
         icons.push(iconName);
     }
 
+    // style = graph.getStylesheet().getDefaultVertexStyle();
+    // style[mxConstants.STYLE_SHAPE] = mxConstants.SHAPE_SWIMLANE;
+    // style[mxConstants.STYLE_VERTICAL_ALIGN] = 'middle';
+    // style[mxConstants.STYLE_LABEL_BACKGROUNDCOLOR] = 'white';
+    // style[mxConstants.STYLE_FONTSIZE] = 11;
+    // style[mxConstants.STYLE_STARTSIZE] = 22;
+    // style[mxConstants.STYLE_HORIZONTAL] = false;
+    // style[mxConstants.STYLE_FONTCOLOR] = 'black';
+    // style[mxConstants.STYLE_STROKECOLOR] = 'black';
+    // delete style[mxConstants.STYLE_FILLCOLOR];
+    // graph.getStylesheet().putCellStyle('swimlane', style);
+
     var nodeInitialX = 0;
     var nodeInitialY = 0;
     var nodeWidth = 32;
@@ -343,8 +420,16 @@ azdataQueryPlan.prototype.init = function(container)
     graph.getModel().beginUpdate();
     try
     {
+        // var lane1a = graph.insertVertex(parent, null, '', 0, 0, 640, 110, 'swimlane');
+		// lane1a.setConnectable(false);
+        // var lane1b = graph.insertVertex(parent, null, 'Lane B', 0, 0, 640, 110, 'swimlane');
+		// lane1b.setConnectable(false);
+        // var lane1c = graph.insertVertex(parent, null, 'Lane C', 0, 0, 640, 110, 'swimlane');
+		// lane1c.setConnectable(false);
+
         var rand = Math.floor((Math.random() * icons.length));
         var vertex = graph.insertVertex(parent, null, this.queryPlanGraph, nodeInitialX, nodeInitialY, nodeWidth, nodeHeight, 'azdataQueryplan-' +  icons[rand]);
+        vertex.setConnectable(false);
         var stack = 
         [
             { 
@@ -359,10 +444,14 @@ azdataQueryPlan.prototype.init = function(container)
             {
                 for (var i = 0; i < entry.node.children.length; ++i)
                 {
-
                     rand = Math.floor((Math.random() * icons.length));
                     var node = entry.node.children[i];
+
+                    // nodeInitialX = Math.floor((Math.random() * 1000) + 1);
+                    // nodeInitialY = Math.floor((Math.random() * 1000) + 1);
+          
                     vertex = graph.insertVertex(parent, null, node, nodeInitialX, nodeInitialY, nodeWidth, nodeHeight, 'azdataQueryplan-' + icons[rand]);
+                    vertex.setConnectable(false);
                     graph.insertEdge(parent, null, '', entry.vertex, vertex);
                     stack.push(
                         { 
@@ -372,6 +461,10 @@ azdataQueryPlan.prototype.init = function(container)
                 }
             }
         }
+
+        // create vertexes
+        // updateVertexPositions
+        // addEdges
         layout.execute(parent);
     }
     finally

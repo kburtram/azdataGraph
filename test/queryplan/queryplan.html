@@ -10,10 +10,14 @@
 	<script type="text/javascript" src="../../src/js/mxClient.js"></script>
 	<script type="text/javascript">
 
+	var icons = new Array();
+    for (const iconName in azdataQueryPlanIconPaths) 
+    {
+        icons.push(iconName);
+    }
+
 	function main(container)
 	{
-		
-
 		var n1_2_1 = {
 			label: 'n1_2_1'
 		};
