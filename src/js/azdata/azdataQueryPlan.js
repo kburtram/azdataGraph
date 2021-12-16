@@ -1,5 +1,7 @@
 // icons that are packaged for use in query execution plan diagrams
-var imageBasePath = "../../src/images/queryPlan/";
+
+// var imageBasePath = "../../src/images/queryPlan/";
+var imageBasePath = "../../../../../node_modules/azdataGraph/src/images/queryPlan/";
 
 var azdataQueryPlanIconPaths =  
 {
@@ -310,12 +312,13 @@ azdataQueryPlan.prototype.init = function(container)
     }
 
     var parent = graph.getDefaultParent();
-    var layout = new mxCompactTreeLayout(graph, true);
+    var layout = new mxHierarchicalLayout(graph, mxConstants.DIRECTION_WEST);
 
     var style = new Object();
     style = mxUtils.clone(style);
     style[mxConstants.STYLE_SHAPE] = mxConstants.SHAPE_LABEL;
-    style[mxConstants.STYLE_STROKECOLOR] = '#000000';
+    style[mxConstants.STYLE_STROKECOLOR] = '#ffffff';
+	style[mxConstants.STYLE_FILLCOLOR] = '#ffffff';
     style[mxConstants.STYLE_ALIGN] = mxConstants.ALIGN_CENTER;
     style[mxConstants.STYLE_VERTICAL_ALIGN] = mxConstants.ALIGN_TOP;
     style[mxConstants.STYLE_IMAGE_ALIGN] = mxConstants.ALIGN_CENTER;
@@ -339,7 +342,15 @@ azdataQueryPlan.prototype.init = function(container)
     try
     {
         var rand = Math.floor((Math.random() * icons.length));
-        var vertex = graph.insertVertex(parent, null, this.queryPlanGraph, 20, 20, 70, 70, 'azdataQueryplan-' +  icons[rand]);
+
+        var iconName = undefined;
+        if (this.queryPlanGraph.icon) {
+            iconName = 'azdataQueryplan-' + this.queryPlanGraph.icon
+        } else {
+            iconName = 'azdataQueryplan-' +  icons[rand];
+        }
+
+        var vertex = graph.insertVertex(parent, null, this.queryPlanGraph, 20, 20, 70, 70, iconName);
         var stack = 
         [
             { 
@@ -353,11 +364,15 @@ azdataQueryPlan.prototype.init = function(container)
             if (entry.node.children)
             {
                 for (var i = 0; i < entry.node.children.length; ++i)
-                {
-
-                    rand = Math.floor((Math.random() * icons.length));
+                {                    
                     var node = entry.node.children[i];
-                    vertex = graph.insertVertex(parent, null, node, 20, 20, 70, 70, 'azdataQueryplan-' + icons[rand]);
+                    if (node.icon) {
+                        iconName = 'azdataQueryplan-' + node.icon
+                    } else {
+                        rand = Math.floor((Math.random() * icons.length));
+                        iconName = 'azdataQueryplan-' +  icons[rand];
+                    }
+                    vertex = graph.insertVertex(parent, null, node, 20, 20, 70, 70, iconName);
                     graph.insertEdge(parent, null, '', entry.vertex, vertex);
                     stack.push(
                         { 
